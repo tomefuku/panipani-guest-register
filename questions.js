@@ -335,7 +335,7 @@ const TRIP_QUESTIONS = [
   },
   {
     id: "reservationSite",
-    type: "checkbox",
+    type: "cards",
     required: true,
     label: {
       ja: "ご予約サイトを教えてください",
@@ -883,7 +883,7 @@ const COMPLETE_INFO = {
       },
       {
         title: "ご宿泊部屋",
-        body: "ご登録のメールアドレスに記載しております。",
+        body: "チェックイン2日前にメールにてご連絡いたします。",
       },
     ],
     linkLabel: "",
@@ -905,7 +905,7 @@ Please do not take the key off the premises.`,
       },
       {
         title: "Your room",
-        body: "Your room number has been sent to your registered email address.",
+        body: "We will contact you by email 2 days before your check-in date.",
       },
     ],
     linkLabel: "",
