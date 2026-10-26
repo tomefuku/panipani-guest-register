@@ -1,61 +1,111 @@
 /**
  * submit.js
- * ------------------------------------------------------------------
  * 「フォーム画面」と「データの送り先」を分離するためのファイルです。
- * app.js はこのファイルの submitGuestRegister() だけを呼び出します。
- * 送り先を変えたい場合は、このファイルの中だけを書き換えればOKです。
+ * app.js は submitGuestRegister() だけを呼び出します。
  *
- * 現在の動作:
- *   1. まず端末のブラウザ内(localStorage)にバックアップとして保存します。
- *   2. CONFIG.GAS_ENDPOINT_URL が設定されていれば、
- *      Google Apps Script(GAS)のウェブアプリへも送信を試みます。
- *
- * ゲストの送信操作そのものは、通信状況などでスプレッドシートへの
- * 送信がうまくいかなかった場合でも失敗として扱いません(その場合でも
- * ブラウザ内のバックアップは残るため、後から確認・再送できます)。
- * ゲストの目の前で「送信エラー」を出さないための設計です。
- * ------------------------------------------------------------------
+ * 動作:
+ *   1. 端末のブラウザ内にバックアップ保存(写真は除く)
+ *   2. Google Apps Script に送信し、「保存できた」返事を確認
+ *   3. 失敗したら最大3回まで自動再送
+ *   4. 確認できなければ { ok:false } → 画面はエラー表示(嘘の完了を出さない)
+ * submissionId により、再送しても名簿は二重になりません。
  */
 
+let lastAttempt = null;
+
+function newSubmissionId() {
+  try {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  } catch (e) {}
+  return "id-" + Date.now() + "-" + Math.random().toString(36).slice(2, 10);
+}
+
+function wait(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+function stripPhotos(answers) {
+  return JSON.parse(
+    JSON.stringify(answers, (k, v) =>
+      typeof k === "string" && k.endsWith("_data") ? "(写真は省略)" : v
+    )
+  );
+}
+
+function saveLocalBackup(payload) {
+  try {
+    const key = CONFIG.LOCAL_BACKUP_KEY;
+    const list = JSON.parse(localStorage.getItem(key) || "[]");
+    const entry = {
+      submissionId: payload.submissionId,
+      submittedAt: payload.submittedAt,
+      answers: stripPhotos(payload.answers),
+    };
+    const i = list.findIndex((x) => x.submissionId === entry.submissionId);
+    if (i >= 0) list[i] = entry;
+    else list.push(entry);
+    localStorage.setItem(key, JSON.stringify(list));
+    return true;
+  } catch (e) {
+    console.warn("ローカルバックアップの保存に失敗しました", e);
+    return false;
+  }
+}
+
+async function postToGas(payload) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 90000);
+  try {
+    const res = await fetch(CONFIG.GAS_ENDPOINT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload),
+      signal: ctrl.signal,
+    });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const text = await res.text();
+    let json;
+    try {
+      json = JSON.parse(text);
+    } catch (e) {
+      throw new Error("返答が不正です: " + text.slice(0, 100));
+    }
+    if (json.result !== "success") {
+      throw new Error("保存に失敗: " + (json.message || json.result));
+    }
+    return json;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function submitGuestRegister(answers) {
+  const json = JSON.stringify(answers);
+  if (!lastAttempt || lastAttempt.json !== json) {
+    lastAttempt = { json: json, submissionId: newSubmissionId() };
+  }
   const payload = {
+    submissionId: lastAttempt.submissionId,
     submittedAt: new Date().toISOString(),
     answers: answers,
   };
 
-  // 1. ローカルバックアップ(スプレッドシート接続前でもデータを失わないため)
-  let localSaved = false;
-  try {
-    const key = CONFIG.LOCAL_BACKUP_KEY;
-    const existing = JSON.parse(localStorage.getItem(key) || "[]");
-    existing.push(payload);
-    localStorage.setItem(key, JSON.stringify(existing));
-    localSaved = true;
-  } catch (storageError) {
-    console.warn("ローカルバックアップの保存に失敗しました", storageError);
+  saveLocalBackup(payload);
+
+  if (!CONFIG.GAS_ENDPOINT_URL) {
+    console.error("[panipani guest register] GAS_ENDPOINT_URL が未設定です");
+    return { ok: false, reason: "no-endpoint" };
   }
 
-  // 2. Googleスプレッドシートへの送信(URL未設定の場合はスキップ)
-  if (CONFIG.GAS_ENDPOINT_URL) {
+  const delays = [0, 2000, 5000];
+  for (let i = 0; i < delays.length; i++) {
+    if (delays[i]) await wait(delays[i]);
     try {
-      await fetch(CONFIG.GAS_ENDPOINT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload),
-      });
-      // no-cors のため実際に成功したかはここでは判定できません。
-    } catch (networkError) {
-      // 通信エラーがあっても、ゲストの送信自体は失敗にしません
-      // (ローカルバックアップは残っているため、後から確認できます)。
-      console.error("スプレッドシートへの送信に失敗しました", networkError);
+      await postToGas(payload);
+      return { ok: true };
+    } catch (err) {
+      console.error("送信失敗 (" + (i + 1) + "回目)", err);
     }
-  } else {
-    console.info(
-      "[panipani guest register] GAS_ENDPOINT_URL が未設定のため、今回はブラウザ内保存のみ行いました。"
-    );
   }
-
-  // ローカルバックアップにも完全に失敗した場合のみ、エラー扱いにします
-  return { ok: localSaved || !!CONFIG.GAS_ENDPOINT_URL };
+  return { ok: false, reason: "failed" };
 }
