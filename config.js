@@ -14,7 +14,7 @@
 const CONFIG = {
   // 例: "https://script.google.com/macros/s/xxxxxxxxxxxxxxxx/exec"
   GAS_ENDPOINT_URL:
-    "https://script.google.com/macros/s/AKfycbyT-0v00uXz3kMJGIRX8Pk8UrzdCprjmBn9KdD1yM3BWElmVnF6IAx2f89unWgfwd7qMA/exec",
+    "https://script.google.com/macros/s/AKfycbwxoJuXCE391iXK_rIPMYTGw5isgd6I0J4L0MY_HXwQPlIEFcpi-B7n7sbuv4Wxl97g/exec",
 
   // ブラウザ内に一時保存する際のキー名(通常は変更不要)
   LOCAL_BACKUP_KEY: "panipani_guest_register_backup",
