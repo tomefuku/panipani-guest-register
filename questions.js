@@ -874,12 +874,16 @@ const COMPLETE_INFO = {
       {
         title: "チェックイン",
         body: `16時から入室可能、セルフチェックイン方式です。
-到着しましたらドア横のキーボックスにて以下の暗証番号を入力し鍵をご利用いただき、中にお入りください。
-
-キーナンバー
-玄関「0528」
-
+到着しましたら、下記のキーボックスに暗証番号を入力して鍵をご利用いただき、中にお入りください。
 尚、鍵の持ち出しは禁止です。`,
+      },
+      {
+        title: "キーボックス",
+        body: "入口ドアの取っ手のすぐ横にある、黒い小さな箱です。",
+        warning: "⚠️ 赤い箱は郵便ポストです。キーボックスではありません。",
+        image: "keybox.jpg",
+        imageAlt: "キーボックスの場所 / Where is the key box?",
+        highlight: "キーナンバー：玄関「0528」",
       },
       {
         title: "ご宿泊部屋",
@@ -896,12 +900,16 @@ const COMPLETE_INFO = {
       {
         title: "Check-in",
         body: `Check-in is available from 4:00 PM. This is a self check-in property.
-When you arrive, please enter the code below into the key box next to the door to get the key, then let yourself in.
-
-Key number
-Front door "0528"
-
+When you arrive, please enter the code into the key box shown below to get the key, then let yourself in.
 Please do not take the key off the premises.`,
+      },
+      {
+        title: "Key box",
+        body: "It is a small black box right next to the handle of the entrance door.",
+        warning: "⚠️ The red box is the mailbox. It is NOT the key box.",
+        image: "keybox.jpg",
+        imageAlt: "キーボックスの場所 / Where is the key box?",
+        highlight: "Key number: Front door \"0528\"",
       },
       {
         title: "Your room",
