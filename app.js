@@ -720,7 +720,10 @@ function renderComplete() {
   if (info) {
     const infoWrap = el("div", "complete-info", []);
     if (info.notice) {
-      infoWrap.appendChild(textEl("p", "complete-notice", info.notice));
+      const noticeEl = textEl("p", "complete-notice", info.notice);
+      noticeEl.style.cssText =
+        "font-size:20px;font-weight:800;line-height:1.7;padding:18px 16px;border-radius:14px;background:#fff1c2;border:3px solid #d93025;color:#b3261e;white-space:pre-line;text-align:center;";
+      infoWrap.appendChild(noticeEl);
     }
     (info.sections || []).forEach((section) => {
       infoWrap.appendChild(textEl("h2", "complete-info__title", section.title));
@@ -739,8 +742,26 @@ function renderComplete() {
         img.src = section.image;
         img.alt = section.imageAlt || "";
         img.style.cssText =
-          "display:block;width:100%;height:auto;margin:10px 0 0;border-radius:12px;border:1px solid rgba(0,0,0,0.12);";
+          "display:block;width:100%;height:auto;max-height:400px;object-fit:cover;object-position:50% 65%;margin:10px 0 0;border-radius:12px;border:1px solid rgba(0,0,0,0.12);";
         infoWrap.appendChild(img);
+      }
+      if (section.steps) {
+        const ol = document.createElement("ol");
+        ol.style.cssText = "list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;";
+        section.steps.forEach((text, i) => {
+          const li = document.createElement("li");
+          li.style.cssText = "display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:#fff;border:1.5px solid #2F5D52;";
+          const num = document.createElement("span");
+          num.textContent = String(i + 1);
+          num.style.cssText = "flex:none;width:32px;height:32px;border-radius:50%;background:#2F5D52;color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;";
+          const label = document.createElement("span");
+          label.textContent = text;
+          label.style.cssText = "font-size:16px;font-weight:700;line-height:1.6;color:#2F5D52;";
+          li.appendChild(num);
+          li.appendChild(label);
+          ol.appendChild(li);
+        });
+        infoWrap.appendChild(ol);
       }
       if (section.highlight) {
         const hl = textEl("p", "complete-info__highlight", section.highlight);
