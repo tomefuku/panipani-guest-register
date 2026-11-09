@@ -500,12 +500,14 @@ const TERMS_TEXT = {
 
 第８条　客室および施設の利用時間
 １．宿泊者が当館の客室を使用できる時間は、チェックイン時間からチェックアウト時間までとします。時間外は客室だけでなく当館の全施設が利用できません。ただし、連続して宿泊する場合は、到着日及び出発日を除き、終日使用することができます。
-２．チェックインは１６時から２１時まで、チェックアウトは早朝から１０時までとします。当館はセルフチェックイン方式のため、ご予約時にご登録いただいた連絡先へ事前に送付する入館方法に従い、１６時以降いつでもチェックイン可能です。深夜の入館時は、近隣および他の宿泊者への迷惑とならないようご配慮ください。
+２．チェックインは１６時以降、チェックアウトは１０時までとします。当館はセルフチェックイン方式のため、ご予約時にご登録いただいた連絡先へ事前に送付する入館方法に従い、チェックインしていただきます。チェックイン時間に制限はなく、２１時以降のご到着でも、そのままご入館いただけます。深夜の入館時は、近隣および他の宿泊者への迷惑とならないようご配慮ください。
 ３．連絡なく２１時を過ぎてもご来館の連絡がない場合、当館はご登録の連絡先（メール、メッセージアプリ等）に確認の連絡を行います。連絡が取れなかった場合、または宿泊者が連絡に気付かずに宿泊できなかった場合であっても、当館の故意または重過失がある場合を除き、当館は一切の責任を負わず、宿泊料金の返還も行いません。
 ４．交通機関の遅延等による到着遅れは、事前にご連絡があった場合のみ柔軟に対応いたします。
 ５．チェックイン前の荷物預かりや早着希望については、事前にご相談ください。
-６．チェックアウト時間の延長は、当日の空室状況により承ります。延長料金はお一人様１時間あたり１,０００円（１時間未満の端数は１時間として計算）とします。延長時間の上限は当館の判断により定め、状況によりお断りすることがあります。
-７．連泊いただく場合、清掃スタッフが１６時頃まで施設内で作業していることがあります。シーツ交換をご希望の場合は、備え付けの交換カードを布団の上に見えるように置いてください。
+６．チェックアウト後にお荷物を施設内に置いておきたい場合は、必ず事前にご相談ください。事前にご連絡いただき、施設側が承諾した場合に限り、お荷物のお預かりを可能とします。
+７．チェックアウト時間の１０時までに、宿泊者ご本人は施設からご退出ください。
+８．チェックアウト時間が１０時を超過する場合、１名様１時間ごとに１,０００円の追加料金を申し受けます。
+９．連泊いただく場合、清掃スタッフが１６時頃まで施設内で作業していることがあります。シーツ交換をご希望の場合は、備え付けの交換カードを布団の上に見えるように置いてください。
 
 第９条　料金の支払い
 １．宿泊料金は、ご予約時にクレジットカードにより即時決済していただきます。現地でのお支払い（現金・その他方法）はお受けしておりません。決済手数料がある場合は、宿泊者の負担とします。
@@ -702,12 +704,14 @@ Article 7 (Hours of Inquiry Response)
 
 Article 8 (Hours of Use for Rooms and Facilities)
 1. Guests may use the Property's rooms from the check-in time until the check-out time. Outside of these hours, guests may not use the room or any of the Property's other facilities. However, for consecutive-night stays, guests may use the facilities all day, except on the arrival day and departure day.
-2. Check-in is available from 4:00 PM to 9:00 PM, and check-out is available from early morning until 10:00 AM. As the Property uses a self check-in system, guests may check in at any time from 4:00 PM onward, following the check-in instructions sent in advance to the contact information provided at the time of booking. Please be considerate of neighbors and other guests when checking in late at night.
+2. Check-in is from 4:00 PM onward, and check-out is by 10:00 AM. As the Property uses a self check-in system, guests check in by following the check-in instructions sent in advance to the contact information provided at the time of booking. There is no restriction on check-in time: even if you arrive after 9:00 PM, you may enter the Property as usual. Please be considerate of neighbors and other guests when checking in late at night.
 3. If the Property has not received any contact from a guest by 9:00 PM, the Property will attempt to reach the guest using the registered contact information (email, messaging apps, etc.). Except where the Property has acted with intent or gross negligence, the Property bears no responsibility, and will not refund any accommodation fees, if contact cannot be made or if the guest fails to notice the contact attempt and is unable to stay.
 4. Delays in arrival due to transportation delays or similar causes will be accommodated flexibly only if the Property is notified in advance.
 5. Please contact the Property in advance if you wish to store luggage before check-in or arrive earlier than the standard check-in time.
-6. Extensions to the check-out time may be granted depending on room availability on the day. The extension fee is 1,000 yen per hour per person (any fraction of an hour is rounded up to a full hour). The maximum extension time is determined at the Property's discretion, and requests may be declined depending on circumstances.
-7. For consecutive-night stays, cleaning staff may be working inside the Property until around 4:00 PM. If you would like your sheets changed, please place the designated exchange card visibly on top of your bedding.
+6. If you wish to leave your luggage at the Property after check-out, you must consult the Property in advance. The Property will store luggage only if you have contacted it beforehand and the Property has approved.
+7. Guests themselves must leave the Property by the check-out time of 10:00 AM.
+8. If you stay past the check-out time of 10:00 AM, an additional fee of 1,000 yen per person for each hour will be charged.
+9. For consecutive-night stays, cleaning staff may be working inside the Property until around 4:00 PM. If you would like your sheets changed, please place the designated exchange card visibly on top of your bedding.
 
 Article 9 (Payment of Fees)
 1. Accommodation fees must be settled immediately by credit card at the time of booking. On-site payment (cash or otherwise) is not accepted. Any payment processing fees shall be borne by the guest.
