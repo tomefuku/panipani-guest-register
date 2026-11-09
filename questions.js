@@ -539,6 +539,7 @@ const TERMS_TEXT = {
 ３．宿泊者は、自転車等の利用や置き場の使用に関して、所定の場所を使用し、適切な管理を行うものとします。
 ４．前条第２項に定める通り、宿泊者は、当館の指示に従い、速やかに避難その他の安全確保に協力するものとします。
 ５．入館用の鍵・キーボックス等の破損・紛失・暗証番号変更において、実費または当館が定める手数料を申し受けます。
+６．館内（客室・共用部を含む全域）で喫煙（電子タバコを含む）が確認された場合、宿泊者は、清掃・消臭・備品交換等に要する費用として、特別清掃料３０,０００円を当館にお支払いいただきます。実費がこの金額を超える場合は、超過分も請求することがあります。また、当館は退館を求めることがあり、この場合の返金はいたしません。
 
 第１４条　寄託物等の取扱い
 １．宿泊者の物品や現金、貴重品は、自己責任で管理してください。滅失または毀損等の損害について、当館の故意または重過失がある場合を除き、一切の責任を負いません。
@@ -587,7 +588,7 @@ const TERMS_TEXT = {
 （１）当館の全施設（宿泊施設、敷地等すべてを含みます。以下総称して「当館内諸施設」といいます。）をご利用の来館者に適用されます。ただし、本規則に定めのないものは、宿泊約款を適用いたします。
 
 ２．火災予防および安全管理
-（１）当館内諸施設は全館禁煙です。電子タバコも該当します。喫煙される場合は必ず屋外にて喫煙し、吸い殻はご自身で処分してください。
+（１）当館内諸施設は全館禁煙です。電子タバコも該当します。喫煙される場合は必ず屋外にて喫煙し、吸い殻はご自身で処分してください。館内で喫煙された場合は、宿泊約款第１３条第６項に基づき特別清掃料３０,０００円を申し受けます。
 （２）お客様用以外のスタッフ専用スペース等には立ち入らないでください。
 （３）客室ドア前および玄関ドア前、廊下には荷物を置かないでください。
 （４）災害、火災、停電、その他緊急事態が発生した場合は、当館スタッフまたは行政の指示に従い、速やかに避難その他安全確保にご協力ください。
@@ -743,6 +744,7 @@ Article 13 (Responsibilities of the Guest)
 3. Guests must use the designated areas for bicycles and similar items and manage them appropriately.
 4. As provided in Article 12, paragraph 2, guests must follow the Property's instructions and promptly cooperate with evacuation and other safety measures.
 5. In the event of damage, loss of, or a change of code for the entry key or key box, the guest will be charged the actual cost or a fee set by the Property.
+6. If smoking (including e-cigarettes) is confirmed anywhere in the Property (including guest rooms and shared areas), the guest will be charged a special cleaning fee of 30,000 yen to cover cleaning, deodorizing, replacement of furnishings, and similar costs. If the actual cost exceeds this amount, the Property may also charge the excess. The Property may also ask the guest to leave, in which case no refund will be given.
 
 Article 14 (Handling of Deposited Items)
 1. Guests are responsible for managing their own belongings, cash, and valuables. Except where the Property has acted with intent or gross negligence, the Property bears no responsibility for any loss or damage to such items.
@@ -791,7 +793,7 @@ To ensure that all guests can use the facility safely and comfortably, "Guesthou
 (1) These terms apply to all visitors using any of the Property's facilities (including the accommodation building and grounds, collectively "the Property's facilities"). Matters not covered by these terms are governed by the Accommodation Agreement.
 
 2. Fire Prevention and Safety Management
-(1) All of the Property's facilities are non-smoking, including the use of electronic cigarettes. If you wish to smoke, please do so outdoors only, and dispose of cigarette butts yourself.
+(1) All of the Property's facilities are non-smoking, including the use of electronic cigarettes. If you wish to smoke, please do so outdoors only, and dispose of cigarette butts yourself. If smoking is confirmed inside the Property, a special cleaning fee of 30,000 yen will be charged under Article 13, paragraph 6 of the Accommodation Terms.
 (2) Please do not enter staff-only areas not intended for guest use.
 (3) Please do not leave belongings in front of room doors, the entrance door, or in hallways.
 (4) In the event of a disaster, fire, power outage, or other emergency, please follow the instructions of Property staff or government authorities and cooperate promptly with evacuation and other safety measures.
