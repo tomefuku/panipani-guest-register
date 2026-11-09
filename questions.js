@@ -880,7 +880,8 @@ const COMPLETE_INFO = {
     sections: [
       {
         title: "チェックイン",
-        body: `16時から入室可能、セルフチェックイン方式です。
+        body: `チェックインは16時以降、チェックアウトは10時までです。
+時間の制限はなく、21時以降のご到着でもご入館いただけます。セルフチェックイン方式です。
 到着しましたら、下記のキーボックスに暗証番号を入力して鍵をご利用いただき、中にお入りください。
 尚、鍵の持ち出しは禁止です。`,
       },
@@ -916,7 +917,8 @@ const COMPLETE_INFO = {
     sections: [
       {
         title: "Check-in",
-        body: `Check-in is available from 4:00 PM. This is a self check-in property.
+        body: `Check-in is from 4:00 PM onward, and check-out is by 10:00 AM.
+There is no time limit for check-in: you may enter even if you arrive after 9:00 PM. This is a self check-in property.
 When you arrive, please enter the code into the key box shown below to get the key, then let yourself in.
 Please do not take the key off the premises.`,
       },
